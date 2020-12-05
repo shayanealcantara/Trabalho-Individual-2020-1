@@ -7,7 +7,7 @@ services:
       - db:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5491:5432" # use port that you want to in your local instead of 5491
+      - "5491:5432"
     environment:
       POSTGRES_PASSWORD: password
 
@@ -20,7 +20,7 @@ services:
       - ./api:/api
       - rails_log:/api/log
     ports:
-      - "3091:3000" # use port that you want to in your local instead of 3091
+      - "3091:3000"
     depends_on:
       - db
 

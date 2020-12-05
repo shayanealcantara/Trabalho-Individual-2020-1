@@ -1,0 +1,14 @@
+.env
+/.bundle
+/log/*
+/tmp/*
+/tmp/pids/*
+!/tmp/pids/
+!/log/.keep
+!/tmp/.keep
+!/tmp/pids/.keep
+/storage/*
+!/storage/.keep
+.byebug_history
+/config/master.key
+

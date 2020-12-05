@@ -1,0 +1,29 @@
+version: "3"
+services:
+
+  db:
+    image: postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5491:5432" # use port that you want to in your local instead of 5491
+    environment:
+      POSTGRES_PASSWORD: password
+
+  api:
+    build: ./api
+    command: bash -c "rm -f /api/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./api:/api
+      - rails_log:/api/log
+    ports:
+      - "3091:3000" # use port that you want to in your local instead of 3091
+    depends_on:
+      - db
+
+volumes:
+  db:
+  rails_log:

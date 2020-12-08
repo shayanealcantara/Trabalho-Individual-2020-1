@@ -1,0 +1,22 @@
+
+name: CI
+
+on:
+  push:
+    branches: 
+    - master
+  pull_request:
+    branches: 
+    - master
+    - release/*
+    - develop
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Build environment
+      run: docker-compose up -d --build

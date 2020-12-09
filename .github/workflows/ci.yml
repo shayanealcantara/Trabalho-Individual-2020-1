@@ -20,6 +20,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Build environment
       run: docker-compose up -d --build
+    - name: Check bundle
+      run: gem install bundler
     - name: Install dependencies
       run: bundle install
     - name: Run tests

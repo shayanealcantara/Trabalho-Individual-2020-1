@@ -20,5 +20,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Build environment
       run: docker-compose up -d --build
+    - name: Install dependencies
+      run: bundle install
     - name: Run tests
+      run: bundle install
       run: docker exec api_rails bash -c "bundle exec rails test"

@@ -2,6 +2,7 @@ version: "3"
 services:
 
   db:
+    container_name: db_postgres
     image: postgres
     volumes:
       - db:/var/lib/postgresql/data
@@ -12,18 +13,31 @@ services:
       POSTGRES_PASSWORD: password
 
   api:
+    container_name: api_rails
     build: ./api
     command: bash -c "rm -f /api/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       - PORT=3000
+      - DATABASE_HOST=localhost
     volumes:
       - ./api:/api
       - rails_log:/api/log
+    env_file: .env
     ports:
       - "3091:3000"
     depends_on:
       - db
 
+  client:
+    container_name: client_front
+    build: ./client
+    ports:
+      - "8091:8080"
+    volumes:
+      - ./client:/client
+      - client_node_modules:/client/node_modules
+
 volumes:
   db:
   rails_log:
+  client_node_modules:

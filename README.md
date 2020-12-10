@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/057f0b9189dadc5da694/maintainability)](https://codeclimate.com/github/shayanealcantara/Trabalho-Individual-2020-1/maintainability)
 
-[![build-CI Actions Status](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/workflows/ci/badge.svg)](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/actions)
+[![Ci Actions Status](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/workflows/CI/badge.svg)](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/actions)
 
 [![codecov](https://codecov.io/gh/shayanealcantara/Trabalho-Individual-2020-1/branch/master/graph/badge.svg?token=QDP7ZBH2RZ)](https://codecov.io/gh/shayanealcantara/Trabalho-Individual-2020-1)
 

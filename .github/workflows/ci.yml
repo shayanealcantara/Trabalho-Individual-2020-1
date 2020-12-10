@@ -29,6 +29,14 @@ jobs:
      
     - name: Run Tests
       run: docker-compose run api bundle exec rails test
+    
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1.0.2
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./src/cov.xml
+        flags: unittests
+        name: codecov-umbrella
 
   frontend:
     runs-on: ubuntu-latest

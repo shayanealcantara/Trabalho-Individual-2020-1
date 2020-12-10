@@ -1,5 +1,11 @@
 # Trabalho Individual - GCES - 2020/1
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/057f0b9189dadc5da694/maintainability)](https://codeclimate.com/github/shayanealcantara/Trabalho-Individual-2020-1/maintainability)
+
+[![build-CI Actions Status](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/workflows/ci/badge.svg)](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/actions)
+
+[![codecov](https://codecov.io/gh/shayanealcantara/Trabalho-Individual-2020-1/branch/master/graph/badge.svg?token=QDP7ZBH2RZ)](https://codecov.io/gh/shayanealcantara/Trabalho-Individual-2020-1)
+
 A Gestão de Configuração de Software é parte fundamental no curso de GCES, e dominar os conhecimentos de configuração de ambiente, containerização, virtualização, integração e deploy contínuo tem se tornado cada vez mais necessário para ingressar no mercado de trabalho.
 
 Para exercitar estes conhecimentos, você deverá aplicar os conceitos estudados ao longo da disciplina no produto de software contido neste repositório.
@@ -40,3 +46,35 @@ Para esta parte do trabalho, poderá ser utilizada qualquer tecnologia ou ferram
 ### 3. Deploy contínuo (Extra)
 
 Caso cumpra todos os requisitos descritos acima, será atribuída uma pontuação extra para o aluno que configure sua pipeline de modo a publicar a aplicação automaticamente, sempre que um novo trecho de código seja integrado à branch default.
+
+## Solução
+
+A proposta de solução foi elaborada primeiramente a partir do uso de containerização utilizando Docker e Docker-Compose.
+
+Para a Integração contínua, foi utilizada a ferramenta nativa do Github, o Github Actions, através do [workflow](https://github.com/shayanealcantara/Trabalho-Individual-2020-1/actions?query=workflow%3ACI) desenvolvido, que pode ser executado a cada push ou pull request feitos para as branches estáveis do projeto.
+
+Para a coleta de métricas é utilizada a ferramenta [Code Climate](https://codeclimate.com/github/shayanealcantara/Trabalho-Individual-2020-1) e [Codecov](https://codecov.io/gh/shayanealcantara/Trabalho-Individual-2020-1), que geram relatórios sobre o código deste repositório. A Codecov em específico possui, além de sua própria interface, um funcionamento aliado a um bot que gera dados na própria página de criação de um pull request.
+
+## Guia de Execução
+
+Essa aplicação tem seu ambiente configurado através de conteiners [Docker](https://www.docker.com), portanto, tem como pré-requisitos a instalação do [Docker](https://www.docker.com/get-started) e [Docker-compose](https://docs.docker.com/compose/install/).
+
+Também é necessário ter o [Git](https://git-scm.com) instalado para clonar o repositório.
+
+Clonagem do repositório:
+
+`git clone https://github.com/shayanealcantara/Trabalho-Individual-2020-1.git`
+
+Execução do conteiner:  
+
+`docker-compose up`  
+
+Após esses passos a aplicação deverá estar acessível em:
+
+`localhost:8080`
+
+Para a execução dos testes dentro do conteiner:
+
+`sudo docker exec -it api_rails bash`
+
+`bundle exec rails test`

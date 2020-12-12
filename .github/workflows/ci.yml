@@ -30,14 +30,11 @@ jobs:
     - name: Run Tests
       run: docker-compose run api bundle exec rails test
     
-    - name: Execute bash uploader
-      run: docker exec api_rails bash -c "bash <(curl -s https://codecov.io/bash)"
-    
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@v1.0.2
       with:
         token: ${{secrets.CODECOV_TOKEN}}
-        file: ./api/.cov.xml
+        file: ./coverage.xml
         flags: unittests
         name: codecov-umbrella
 

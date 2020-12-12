@@ -19,3 +19,5 @@ jobs:
         with:
           eslintArgs: '--ignore-path .gitignore --quiet'
           extensions: 'js, jsx, ts, tsx'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
